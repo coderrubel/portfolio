@@ -30,7 +30,7 @@
     <div class="loader"></div>
 </div>
     
-    <nav>
+    <nav class="subpage-nav">
         <div class="row">
             <div class="container">
                 <div class="logo">
