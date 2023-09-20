@@ -17,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 // Fontend
 Route::get('/', function () {
-    return view('fontend/index');
+    return view('welcome');
 });
 // Blog Page
-Route::get('/blog_page',[PageController::class,'blogPage'])->name('blog');
+Route::get('/blog',[PageController::class,'blogPage'])->name('blog');
+// Blog Page
+Route::get('/single_blog',[PageController::class,'SingleBlog'])->name('single_blog');
+
 
 // Dashboard
 Route::get('/dashboard', function () {

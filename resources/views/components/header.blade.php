@@ -41,7 +41,7 @@
                     <li><a href="{{url('/')}}" class="smoothScroll">Home</a></li>
                     <li><a href="{{ request()->is('/') ? '#about' : '/#about' }}" class="smoothScroll">About</a></li>
                     <li><a href="{{ request()->is('/') ? '#portfolio' : '/#portfolio' }}" class="smoothScroll">Portfolio</a></li>
-                    <li><a href="{{ request()->is('/') ? '#blog' : 'blog_page' }}" class="smoothScroll">Blog</a></li>
+                    <li><a href="{{ request()->is('/') ? '#blog' : 'blog' }}" class="smoothScroll">Blog</a></li>
                     <li><a href="{{ request()->is('/') ? '#contact' : '/#contact' }}" class="smoothScroll">Contact</a></li>
                 </ul>
             </div>

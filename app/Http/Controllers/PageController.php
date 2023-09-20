@@ -10,4 +10,8 @@ class PageController extends Controller
     function blogPage(){
         return view('fontend/blog-page');
     }
+    //Blog Page
+    function Singleblog(){
+        return view('fontend/single-blog');
+    }
 }
