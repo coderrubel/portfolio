@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // Fontend
 Route::get('/', function () {
-    return view('welcome');
+    return view('/fontend.index');
 });
 // Blog Page
 Route::get('/blog',[PageController::class,'blogPage'])->name('blog');
