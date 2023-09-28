@@ -15,14 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Fontend
-Route::get('/', function () {
-    return view('/fontend.index');
-});
-// Blog Page
-Route::get('/blog',[PageController::class,'blogPage'])->name('blog');
-// Blog Page
-Route::get('/single_blog',[PageController::class,'SingleBlog'])->name('single_blog');
 
 
 // Dashboard
@@ -30,10 +22,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth','verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
+
+
+// Fontend
+Route::get('/', function () {
+    return view('fontend/index');
+});
+// Blog Page
+Route::get('/blog',[PageController::class,'blogPage'])->name('blog');
+// Blog Page
+Route::get('/single_blog',[PageController::class,'SingleBlog'])->name('single_blog');
