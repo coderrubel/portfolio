@@ -14,4 +14,8 @@ class PageController extends Controller
     function Singleblog(){
         return view('fontend/single-blog');
     }
+    //Portfolios
+    function Portfolio(){
+        return view('dashboard');
+    }
 }
