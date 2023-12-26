@@ -5,7 +5,12 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     @if(Request::is('portfolios'))
                     {{ __("Portfolio") }}
-                        
+                    @elseif(Request::is('catagory'))
+                    {{ __("Catagory") }}   
+                    @elseif(Request::is('blogs'))
+                    {{ __("Blog") }}    
+                    @elseif(Request::is('messages'))
+                    {{ __("Contact Message") }}
                     @else
                     {{ __("Dashboard") }}
                     @endif    

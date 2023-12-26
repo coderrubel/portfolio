@@ -23,10 +23,29 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth','verified')->group(function () {
+    // User Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); 
+    // Catagory
+    Route::get('/catagory', [PageController::class, 'edit'])->name('catagory.edit');
+    Route::patch('/catagory', [PageController::class, 'update'])->name('catagory.update');
+    Route::delete('/catagory', [PageController::class, 'destroy'])->name('catagory.destroy');
+    Route::get('/catagory',[PageController::class,'Portfolio'])->name('catagory');
+    // Portfolio
+    Route::get('/portfolio', [PageController::class, 'edit'])->name('portfolio.edit');
+    Route::patch('/portfolio', [PageController::class, 'update'])->name('portfolio.update');
+    Route::delete('/portfolio', [PageController::class, 'destroy'])->name('portfolio.destroy');
     Route::get('/portfolios',[PageController::class,'Portfolio'])->name('portfolios');
+    // Blog
+    Route::get('/blog', [PageController::class, 'edit'])->name('blog.edit');
+    Route::patch('/blog', [PageController::class, 'update'])->name('blog.update');
+    Route::delete('/blog', [PageController::class, 'destroy'])->name('blog.destroy');
+    Route::get('/blogs',[PageController::class,'Portfolio'])->name('blogs');
+    // Contact Messages
+    Route::delete('/messages', [PageController::class, 'destroy'])->name('messages.destroy');
+    Route::get('/messages',[PageController::class,'Portfolio'])->name('messages');
+
 });
 
 require __DIR__.'/auth.php';
