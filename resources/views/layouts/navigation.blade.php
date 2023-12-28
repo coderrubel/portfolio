@@ -12,17 +12,17 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('catagory')" :active="request()->routeIs('catagory')">
+                    <x-nav-link :href="route('catagory')" :active="request()->routeIs('catagory')" class="mx-2">
                         {{ __('Catagory') }}
                     </x-nav-link>
                     <x-nav-link :href="route('portfolios')" :active="request()->routeIs('portfolios')">
                         {{ __('Portfolio') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('blogs')" :active="request()->routeIs('blogs')">
+                    <x-nav-link :href="route('blogs')" :active="request()->routeIs('blogs')" class="mx-2">
                         {{ __('Blog') }}
                     </x-nav-link>
                     <x-nav-link :href="route('messages')" :active="request()->routeIs('messages')">

@@ -27,48 +27,50 @@
                                         <th>Catagory</th>
                                         <th>Title</th>
                                         <th>Details</th>
-                                        <th>Photo</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
+                                    <tr class="text-left">
                                         <th>Catagory</th>
-                                        <th>Title</th>
+                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
                                         <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
-                                        <th>Photo</th>
+                                        <th><button type="submit" class="btn btn-outline-info btn-sm mb-2">Edit</button><br><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></th>
                                     </tr>
-                                    <tr class="text-center">
+                                    <tr class="text-left">
                                         <th>Catagory</th>
-                                        <th>Title</th>
-                                        <th>Details</th>
-                                        <th>Photo</th>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th>Catagory</th>
-                                        <th>Title</th>
-                                        <th>Details</th>
-                                        <th>Photo</th>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th>Catagory</th>
-                                        <th>Title</th>
-                                        <th>Details</th>
-                                        <th>Photo</th>
+                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
+                                        <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
+                                        <th><button type="submit" class="btn btn-outline-info btn-sm mb-2">Edit</button><br><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></th>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 order-md-2 order-lg-2 order-sm-1 mb-2">
                             <div class="mb-3">
-                                <label for="catagory" class="form-label">Catagory Name</label>
-                                <input type="text" class="form-control rounded" id="catagory" placeholder="Catagory Name">
+                                <input class="form-control" list="datalistOptions" placeholder="Select Catagory">
+                                <datalist id="datalistOptions">
+                                    <option value="San Francisco">
+                                    <option value="New York">
+                                    <option value="Seattle">
+                                    <option value="Los Angeles">
+                                    <option value="Chicago">
+                                </datalist>
                             </div>
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control rounded" id="title" placeholder="Title">
+                                <input type="text" class="form-control rounded" placeholder="Title">
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Type Details"></textarea>
+                                    <label for="details">Details</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control border border-lite p-1 rounded" type="file">
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-outline-secondary">ADD</button>
+                                <button type="submit" class="btn btn-outline-success btn-sm">ADD</button>
                             </div> 
                         </div>
                     </div> 
@@ -80,24 +82,14 @@
                                     <tr class="text-center">
                                         <th>ID</th>
                                         <th>Name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
                                         <th>#</th>
                                         <th>First</th>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th>#</th>
-                                        <th>First</th>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th>#</th>
-                                        <th>First</th>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th>#</th>
-                                        <th>First</th>
+                                        <th><button type="submit" class="btn btn-outline-info btn-sm mb-2">Edit</button><br><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -108,14 +100,64 @@
                                 <input type="text" class="form-control rounded" id="catagory" placeholder="Catagory Name">
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-outline-secondary">ADD</button>
+                                <button type="submit" class="btn btn-outline-success">Add</button>
                             </div> 
                         </div>
                     </div> 
                     @elseif(Request::is('blogs'))
-                    {{ __("Blog") }}    
+                        <div class="col-12">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr class="text-center">
+                                        <th>Name/Date</th>
+                                        <th>Title</th>
+                                        <th>Details</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-left">
+                                        <th>Rubel<br><small class="text-left">Date: 11-01-2024</small></th>
+                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
+                                        <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
+                                        <th><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                    </tr>
+                                    <tr class="text-left">
+                                        <th>rubel.ali@sebpo.com<br><small class="text-left">Date: 11-01-2024</small></th>
+                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
+                                        <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
+                                        <th><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> 
                     @elseif(Request::is('messages'))
-                    {{ __("Contact Message") }}
+                        <div class="col-12">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr class="text-center">
+                                        <th>E-Mail</th>
+                                        <th>Subject</th>
+                                        <th>Messages</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-left">
+                                        <th>rubel.ali@sebpo.com<br><small class="text-left">Date: 11-01-2024</small></th>
+                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
+                                        <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
+                                        <th><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                    </tr>
+                                    <tr class="text-left">
+                                        <th>rubel.ali@sebpo.com<br><small class="text-left">Date: 11-01-2024</small></th>
+                                        <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
+                                        <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
+                                        <th><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     @else
                     {{ __("Dashboard") }}
                     @endif
