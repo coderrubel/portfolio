@@ -80,28 +80,34 @@
                             <table class="table table-hover">
                                 <thead class="table-light">
                                     <tr class="text-center">
-                                        <th>ID</th>
+                                        <!-- <th>ID</th> -->
                                         <th>Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($categories as $category)
                                     <tr class="text-center">
-                                        <th>#</th>
-                                        <th>First</th>
-                                        <th><button type="submit" class="btn btn-outline-info btn-sm mb-2">Edit</button><br><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                        <!-- <th>{{ $category->id }}</th> -->
+                                        <th>{{ $category->name }}</th>
+                                        <th><button type="submit" class="btn btn-outline-info btn-sm">Edit</button> <button type="submit" class="btn btn-outline-danger btn-sm"><a href="{{ url('/catagory/'.$category->id) }}">Delete</a></button></th>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 order-md-2 order-lg-2 order-sm-1 mb-2">
-                            <div class="mb-3">
-                                <label for="catagory" class="form-label">Catagory Name</label>
-                                <input type="text" class="form-control rounded" id="catagory" placeholder="Catagory Name">
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-outline-success">Add</button>
-                            </div> 
+                            <form action="{{ route('catagory.add')}}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="catagory" class="form-label">Catagory Name</label>
+                                    @error('name')<p class="text-danger">{{ $message }}</p>@enderror    
+                                    <input type="text" name="name" class="form-control rounded" id="catagory" placeholder="Catagory Name">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-outline-success">Add</button>
+                                </div> 
+                            </form>    
                         </div>
                     </div> 
                     @elseif(Request::is('blogs'))
@@ -120,13 +126,13 @@
                                         <th>Rubel<br><small class="text-left">Date: 11-01-2024</small></th>
                                         <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
                                         <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
-                                        <th><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                        <th><button type="submit" class="btn btn-outline-info btn-sm mb-2">Edit</button><br><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
                                     </tr>
                                     <tr class="text-left">
                                         <th>rubel.ali@sebpo.com<br><small class="text-left">Date: 11-01-2024</small></th>
                                         <th>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloribus omnis nobis ipsum perferendis est?</th>
                                         <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab facilis impedit ex numquam enim. Veniam molestias, quam fugit eaque pariatur id velit neque cumque, quisquam necessitatibus rem provident sed suscipit aperiam? Necessitatibus dolore omnis enim magni, laborum dicta totam, cumque eos perspiciatis unde nesciunt! Distinctio, vel! Repellendus officia amet sed.</th>
-                                        <th><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
+                                        <th><button type="submit" class="btn btn-outline-info btn-sm mb-2">Edit</button><br><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></th>
                                     </tr>
                                 </tbody>
                             </table>

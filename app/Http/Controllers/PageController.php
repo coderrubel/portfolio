@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\catagory;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -16,6 +16,7 @@ class PageController extends Controller
     }
     //Portfolios
     function Portfolio(){
-        return view('dashboard');
+        $categories = catagory::latest()->paginate(10);
+        return view('dashboard',compact('categories'));
     }
 }

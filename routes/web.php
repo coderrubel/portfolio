@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\CatagoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,11 @@ Route::middleware('auth','verified')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); 
     // Catagory
-    Route::get('/catagory', [PageController::class, 'edit'])->name('catagory.edit');
+    Route::post('/catagory/add', [CatagoryController::class, 'create'])->name('catagory.add');
+    Route::get('/catagory', [CatagoryController::class, 'show'])->name('catagory');
+    Route::get('/catagory', [CatagoryController::class, 'edit'])->name('catagory.edit');
     Route::patch('/catagory', [PageController::class, 'update'])->name('catagory.update');
-    Route::delete('/catagory', [PageController::class, 'destroy'])->name('catagory.destroy');
+    Route::delete('/catagory/{id}', [PageController::class, 'destroy'])->name('catagory.destroy');
     Route::get('/catagory',[PageController::class,'Portfolio'])->name('catagory');
     // Portfolio
     Route::get('/portfolio', [PageController::class, 'edit'])->name('portfolio.edit');
