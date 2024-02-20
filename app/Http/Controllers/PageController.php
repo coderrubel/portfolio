@@ -11,11 +11,16 @@ class PageController extends Controller
         return view('fontend/blog-page');
     }
     //Blog Page
-    function Singleblog(){
+    function SingleBlog(){
         return view('fontend/single-blog');
     }
-    //Portfolios
-    function Portfolio(){
+    //Catagory
+    function catagory(){
+        $categories = catagory::latest()->paginate(10);
+        return view('dashboard',compact('categories'));
+    }
+    //Portfolio 
+    function portfolio (){
         $categories = catagory::latest()->paginate(10);
         return view('dashboard',compact('categories'));
     }

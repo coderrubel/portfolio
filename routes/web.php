@@ -29,17 +29,16 @@ Route::middleware('auth','verified')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); 
     // Catagory
+    Route::get('/catagory',[CatagoryController::class,'index'])->name('catagory');
     Route::post('/catagory/add', [CatagoryController::class, 'create'])->name('catagory.add');
-    Route::get('/catagory', [CatagoryController::class, 'show'])->name('catagory');
-    Route::get('/catagory', [CatagoryController::class, 'edit'])->name('catagory.edit');
-    Route::patch('/catagory', [PageController::class, 'update'])->name('catagory.update');
-    Route::delete('/catagory/{id}', [PageController::class, 'destroy'])->name('catagory.destroy');
-    Route::get('/catagory',[PageController::class,'Portfolio'])->name('catagory');
+    Route::get('/edit_catagory', [CatagoryController::class, 'edit']);
+    Route::get('/catagory/{id}', [CatagoryController::class, 'destroy']);
+    // Route::patch('/catagory', [PageController::class, 'update'])->name('catagory.update');
     // Portfolio
     Route::get('/portfolio', [PageController::class, 'edit'])->name('portfolio.edit');
     Route::patch('/portfolio', [PageController::class, 'update'])->name('portfolio.update');
     Route::delete('/portfolio', [PageController::class, 'destroy'])->name('portfolio.destroy');
-    Route::get('/portfolios',[PageController::class,'Portfolio'])->name('portfolios');
+    Route::get('/portfolios',[PageController::class,'portfolio'])->name('portfolios');
     // Blog
     Route::get('/blog', [PageController::class, 'edit'])->name('blog.edit');
     Route::patch('/blog', [PageController::class, 'update'])->name('blog.update');

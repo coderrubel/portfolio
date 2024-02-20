@@ -80,7 +80,6 @@
                             <table class="table table-hover">
                                 <thead class="table-light">
                                     <tr class="text-center">
-                                        <!-- <th>ID</th> -->
                                         <th>Name</th>
                                         <th>Action</th>
                                     </tr>
@@ -88,9 +87,11 @@
                                 <tbody>
                                     @foreach($categories as $category)
                                     <tr class="text-center">
-                                        <!-- <th>{{ $category->id }}</th> -->
                                         <th>{{ $category->name }}</th>
-                                        <th><button type="submit" class="btn btn-outline-info btn-sm">Edit</button> <button type="submit" class="btn btn-outline-danger btn-sm"><a href="{{ url('/catagory/'.$category->id) }}">Delete</a></button></th>
+                                        <th>
+                                            <button type="submit" class="btn btn-outline-info btn-sm"><a href="{{ url('/edit_catagory/'.$category->id) }}">Edit</a></button>     
+                                            <button type="submit" class="btn btn-outline-danger btn-sm"><a href="{{ url('/catagory/'.$category->id) }}" onclick="return confirm('Are you sure Delete This Catagory?')" >Delete</a></button>
+                                        </th>
                                     </tr>
                                     @endforeach
                                 </tbody>

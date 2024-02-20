@@ -7,17 +7,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class CatagoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    function index()
     {
-        // $categories = catagory::latest()->paginate(5);
-        // return view('dashboard',compact('categories'));
+        $categories = catagory::latest()->paginate(10);
+        return view('dashboard',compact('categories'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -44,9 +46,11 @@ class CatagoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(catagory $catagory)
+    public function edit(catagory $id)
     {
-        //
+        $categories = catagory::latest()->paginate(10);
+        $edit = catagory::findOrFail($id);
+        return view('dashboard',compact('categories'));
     }
 
     /**
@@ -60,10 +64,9 @@ class CatagoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(catagory $id)
+    public function destroy($id)
     {
-        // $delete = catagory::find($id)->delete();
-        DB::table('catagory')->where('id', $id)->delete();
+        $delete = catagory::find($id)->delete();
         return Redirect()->back();
     }
 }
