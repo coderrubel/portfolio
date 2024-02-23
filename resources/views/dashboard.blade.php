@@ -89,14 +89,35 @@
                                     <tr class="text-center">
                                         <th>{{ $category->name }}</th>
                                         <th>
-                                            <button type="submit" class="btn btn-outline-info btn-sm"><a href="{{ url('/edit_catagory/'.$category->id) }}">Edit</a></button>     
-                                            <button type="submit" class="btn btn-outline-danger btn-sm"><a href="{{ url('/catagory/'.$category->id) }}" onclick="return confirm('Are you sure Delete This Catagory?')" >Delete</a></button>
-                                        </th>
+                                            <a class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#edit-{{$category->name}}">Edit</a>
+                                            <a type="submit" class="btn btn-outline-danger btn-sm" href="{{ url('/catagory/'.$category->id) }}" onclick="return confirm('Are you sure Delete This Catagory?')" >Delete</a>
+                                        </th>    
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <form action="{{ route('catagory.add')}}" method="POST">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="catagory" class="form-label">Catagory Name</label> 
+                                                    <input type="text" name="name" value="{{$category->name}}" class="form-control rounded" id="catagory">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-outline-primary">Save changes</button>
+                                            </div>
+                                        </form>     
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- Catagory Add -->
                         <div class="col-lg-6 col-md-6 col-sm-12 order-md-2 order-lg-2 order-sm-1 mb-2">
                             <form action="{{ route('catagory.add')}}" method="POST">
                                 @csrf
